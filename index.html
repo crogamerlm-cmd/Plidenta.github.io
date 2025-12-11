@@ -6,240 +6,188 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --navy: #051a4a;
-      --navy-light: #0b2a70;
-      --aqua: #1fd3ff;
-      --mint: #68d7a3;
-      --coral: #ff4a5e;
-      --gold: #d4aa3a;
-      --lavender: #b5a4ff;
-      --red-med: #f44336;
-      --bg: #f3f6fb;
-      --text: #1c2440;
-      --muted: #6f7a97;
-      --radius: 10px;
-      --shadow: 0 18px 40px rgba(0,0,0,0.16);
+      --navy:#051a4a; --navy-light:#0b2a70; --aqua:#1fd3ff;
+      --mint:#68d7a3; --coral:#ff4a5e; --bg:#f3f6fb; --text:#1c2440;
     }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+         background:var(--bg);color:var(--text);line-height:1.5}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    header{background:linear-gradient(90deg,var(--navy),var(--navy-light));color:#fff}
+    .container{max-width:1100px;margin:0 auto;padding:0 16px}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    nav{display:flex;gap:20px;font-size:14px}
+    nav a{position:relative;padding-bottom:2px}
+    nav a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;
+                 background:var(--aqua);transition:width .2s}
+    nav a:hover::after{width:100%}
+    .btn{padding:8px 16px;border-radius:999px;border:1px solid transparent;
+         font-size:14px;font-weight:600;cursor:pointer}
+    .btn-primary{background:linear-gradient(120deg,var(--aqua),var(--mint));color:var(--navy)}
+    .hero{background:radial-gradient(circle at top left,#1c3aa3 0,#020316 55%,#000);color:#fff;
+          padding:40px 0 60px}
+    .hero-inner{display:grid;grid-template-columns:minmax(0,1.1fr)minmax(0,1fr);gap:32px;
+                align-items:center}
+    .hero h1{font-size:32px;margin-bottom:12px}
+    .hero p{font-size:15px;color:#e0e5ff;margin-bottom:18px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;font-size:12px}
+    .tag{padding:6px 10px;border-radius:999px;background:rgba(3,16,60,.8);
+         border:1px solid rgba(159,187,255,.5)}
+    .hero-packshot{border-radius:18px;background:#061337;
+                   padding:18px;box-shadow:0 16px 32px rgba(0,0,0,.45)}
+    .hero-pack{height:52px;border-radius:12px;margin-bottom:10px;padding:8px 12px;
+               display:flex;align-items:center;justify-content:space-between;font-size:13px;
+               color:#fff}
+    .hero-pack:nth-child(1){background:linear-gradient(90deg,#0a3bff,#3ac4ff)}
+    .hero-pack:nth-child(2){background:linear-gradient(90deg,#0a9b5b,#7de2b0)}
+    .hero-pack:nth-child(3){background:linear-gradient(90deg,#f44336,#ff8a65)}
+    section{padding:40px 0}
+    h2{font-size:24px;margin-bottom:16px}
+    .grid{display:grid;gap:18px}
+    .cards-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+    .card{background:#fff;border-radius:14px;padding:16px;
+          box-shadow:0 10px 22px rgba(0,0,0,.08)}
+    .pill{display:inline-block;font-size:11px;padding:4px 10px;border-radius:999px;
+          background:#eef2ff;margin-bottom:6px}
+    .card h3{font-size:16px;margin-bottom:6px}
+    .card p{font-size:13px;color:#5a627d}
+    footer{background:#020316;color:#9ba3ce;padding:24px 0;font-size:13px}
+    @media(max-width:800px){
+      .hero-inner{grid-template-columns:1fr}
+      nav{display:none}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container header-inner">
+    <div style="font-weight:700;font-size:18px;">plidenta</div>
+    <nav>
+      <a href="#whitening">Whitening</a>
+      <a href="#protective">Zaštita</a>
+      <a href="#science">Znanost</a>
+      <a href="#about">O Plidenti</a>
+    </nav>
+    <button class="btn btn-primary" onclick="location.href='#whitening'">Istraži paste</button>
+  </div>
+</header>
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <h1>Nova Plidenta za 100% osmijeh.</h1>
+        <p>Redizajnirana linija pasta i vodica za usta, inspirirana novim tamnoplavim
+           pakiranjem i više od 100 godina hrvatske tradicije.</p>
+        <div class="tags">
+          <span class="tag">Napredni whitening</span>
+          <span class="tag">Zaštita desni</span>
+          <span class="tag">Prirodni ekstrakti</span>
+        </div>
+        <button class="btn btn-primary" onclick="location.href='#whitening'">
+          Pogledaj sve paste
+        </button>
+      </div>
+      <div class="hero-packshot">
+        <div class="hero-pack">
+          <span>Extra White</span><span>Brzo uklanjanje mrlja</span>
+        </div>
+        <div class="hero-pack">
+          <span>Herbal</span><span>Nježna zaštita desni</span>
+        </div>
+        <div class="hero-pack">
+          <span>Parodont +</span><span>Medicinska njega</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    /* Layout helpers */
-    .container {
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 16px;
-    }
-    section { padding: 64px 0; }
+  <section id="whitening">
+    <div class="container">
+      <h2>Whitening linija</h2>
+      <div class="grid cards-3">
+        <article class="card">
+          <span class="pill">Extra White</span>
+          <h3>Svjetliji zubi</h3>
+          <p>Formula za svakodnevnu upotrebu koja pomaže ukloniti površinske mrlje
+             i istovremeno štiti caklinu.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Instant White</span>
+          <h3>Brzi efekt</h3>
+          <p>Optički efekti za brže vizualno izbjeljivanje i svjež dah kad je
+             svaki detalj važan.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Black &amp; Gold</span>
+          <h3>Aktivni ugljen</h3>
+          <p>Kombinacija aktivnog ugljena i nježnih abraziva za dubinsko čišćenje
+             i sjajni osmijeh.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    /* Header */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: linear-gradient(90deg, var(--navy), var(--navy-light));
-      color: #fff;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-    .logo-badge {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--navy);
-      font-size: 18px;
-      font-weight: 800;
-    }
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      font-size: 14px;
-    }
-    nav a {
-      opacity: 0.88;
-      position: relative;
-      padding-bottom: 2px;
-    }
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: var(--aqua);
-      transition: width 0.2s ease;
-    }
-    nav a:hover::after { width: 100%; }
-    .header-cta {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-    .btn-primary {
-      background: linear-gradient(120deg, var(--aqua), var(--mint));
-      color: var(--navy);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    }
-    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(0,0,0,0.28); }
-    .btn-ghost {
-      background: transparent;
-      color: #fff;
-      border-color: rgba(255,255,255,0.5);
-    }
-    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+  <section id="protective">
+    <div class="container">
+      <h2>Zaštita i priroda</h2>
+      <div class="grid cards-3">
+        <article class="card">
+          <span class="pill">Herbal</span>
+          <h3>Biljni ekstrakti</h3>
+          <p>Odabrani biljni sastojci koji pomažu smiriti desni i održati osjećaj
+             čistoće tijekom dana.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Propolis</span>
+          <h3>Prirodna barijera</h3>
+          <p>Propolis i dodatni aktivni sastojci za dodatnu zaštitu desni.</p>
+        </article>
+        <article class="card">
+          <span class="pill">Kids</span>
+          <h3>Za male osmijehe</h3>
+          <p>Nježna formula prilagođena djeci, s okusima koje djeca vole.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    .hamburger {
-      display: none;
-      width: 24px;
-      height: 24px;
-      flex-direction: column;
-      justify-content: center;
-      gap: 4px;
-      cursor: pointer;
-    }
-    .hamburger span {
-      height: 2px;
-      background: #fff;
-      border-radius: 999px;
-    }
+  <section id="science">
+    <div class="container">
+      <h2>Znanost iza osmijeha</h2>
+      <div class="grid cards-3">
+        <article class="card">
+          <h3>Fluoridna zaštita</h3>
+          <p>Pomaže ojačati caklinu i smanjiti rizik od nastanka karijesa.</p>
+        </article>
+        <article class="card">
+          <h3>Sastojci nove generacije</h3>
+          <p>Aktivni kompleksi za izbjeljivanje, zaštitu desni i osjetljive zube.</p>
+        </article>
+        <article class="card">
+          <h3>100% hrvatski brend</h3>
+          <p>Dizajnirano i proizvedeno u Hrvatskoj, uz poštivanje visokih
+             kvalitativnih standarda.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    /* Hero */
-    .hero {
-      background: radial-gradient(circle at top left, #1c3aa3 0, #020316 55%, #000000 100%);
-      color: #fff;
-      padding-top: 48px;
-      padding-bottom: 72px;
-    }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      gap: 40px;
-      align-items: center;
-    }
-    .eyebrow {
-      font-size: 13px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--aqua);
-      margin-bottom: 12px;
-    }
-    .hero h1 {
-      font-size: clamp(32px, 4vw, 44px);
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      margin-bottom: 14px;
-    }
-    .hero p {
-      font-size: 15px;
-      color: #e1e7ff;
-      max-width: 460px;
-      margin-bottom: 24px;
-    }
-    .hero-badges {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-    }
-    .pill {
-      border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(8,30,80,0.85);
-      border: 1px solid rgba(116,156,255,0.6);
-    }
-    .pill-icon {
-      width: 18px;
-      height: 18px;
-      border-radius: 999px;
-    }
-    .pill-icon.blue { background: linear-gradient(135deg, var(--aqua), #9df); }
-    .pill-icon.gold { background: linear-gradient(135deg, var(--gold), #ffe6a4); }
-    .pill-icon.green { background: linear-gradient(135deg, var(--mint), #e0ffe8); }
+  <section id="about">
+    <div class="container">
+      <h2>O Plidenti</h2>
+      <p>Plidenta je domaći brend zubnih pasta s dugom tradicijom. Nova
+         ambalaža i recepture spajaju prepoznatljiv izgled i suvremenu
+         stomatološku znanost.</p>
+    </div>
+  </section>
+</main>
 
-    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
-    .hero-note {
-      font-size: 12px;
-      color: #cfd6ff;
-    }
-
-    .hero-visual {
-      border-radius: 26px;
-      background: radial-gradient(circle at 10% 0, #3c6bff 0, #02051a 55%, #000000 100%);
-      padding: 20px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-visual-inner {
-      border-radius: 20px;
-      border: 1px solid rgba(152,184,255,0.45);
-      padding: 18px 18px 4px;
-      background: linear-gradient(160deg, rgba(22,42,132,0.9), rgba(7,14,51,0.95));
-    }
-    .hero-stack {
-      position: relative;
-      margin-top: 6px;
-    }
-    .hero-pack {
-      border-radius: 12px;
-      height: 58px;
-      display: flex;
-      align-items: center;
-      padding: 10px 14px;
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      box-shadow: 0 14px 30px rgba(0,0,0,0.65);
-      border: 1px solid rgba(255,255,255,0.18);
-      margin-bottom: 10px;
-    }
-    .hero-pack-label {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .hero-pack-name { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.88; }
-    .hero-pack-line { font-size: 16px
+<footer>
+  <div class="container">
+    © 2025 Plidenta. Sva prava pridržana.
+  </div>
+</footer>
+</body>
+</html>
