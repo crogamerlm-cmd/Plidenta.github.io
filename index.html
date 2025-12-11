@@ -2,71 +2,154 @@
 <html lang="hr">
 <head>
   <meta charset="UTF-8" />
-  <title>Plidenta – 100% osmijeh</title>
+  <title>Plidenta – Basic, Whitening, Bio, Phytodent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    :root {
-      --navy:#051a4a; --navy-light:#0b2a70; --aqua:#1fd3ff;
-      --mint:#68d7a3; --coral:#ff4a5e; --bg:#f3f6fb; --text:#1c2440;
+    :root{
+      --navy:#041939;--navy-dark:#020316;--navy-soft:#0c275e;
+      --sky:#3dd6ff;--mint:#64d9a3;--green:#48b578;
+      --coral:#ff525f;--gold:#d7a640;
+      --bg:#f4f7fb;--card:#ffffff;--text:#16213b;--muted:#667093;
+      --radius:16px;--shadow:0 14px 30px rgba(0,0,0,.12);
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-         background:var(--bg);color:var(--text);line-height:1.5}
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);color:var(--text);line-height:1.5;
+    }
     a{text-decoration:none;color:inherit}
     img{max-width:100%;display:block}
-    header{background:linear-gradient(90deg,var(--navy),var(--navy-light));color:#fff}
-    .container{max-width:1100px;margin:0 auto;padding:0 16px}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    nav{display:flex;gap:20px;font-size:14px}
-    nav a{position:relative;padding-bottom:2px}
-    nav a::after{content:"";position:absolute;left:0;bottom:-3px;width:0;height:2px;
-                 background:var(--aqua);transition:width .2s}
+    .container{max-width:1160px;margin:0 auto;padding:0 16px}
+    header{
+      position:sticky;top:0;z-index:40;
+      background:linear-gradient(90deg,var(--navy),var(--navy-soft));
+      color:#fff;box-shadow:0 8px 18px rgba(0,0,0,.35);
+    }
+    .hdr-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 0;
+    }
+    .logo{font-weight:800;font-size:20px;letter-spacing:.03em;}
+    nav{display:flex;gap:22px;font-size:14px;}
+    nav a{opacity:.9;position:relative;padding-bottom:2px;}
+    nav a::after{
+      content:"";position:absolute;left:0;bottom:-3px;height:2px;width:0;
+      background:var(--sky);transition:width .18s;
+    }
     nav a:hover::after{width:100%}
-    .btn{padding:8px 16px;border-radius:999px;border:1px solid transparent;
-         font-size:14px;font-weight:600;cursor:pointer}
-    .btn-primary{background:linear-gradient(120deg,var(--aqua),var(--mint));color:var(--navy)}
-    .hero{background:radial-gradient(circle at top left,#1c3aa3 0,#020316 55%,#000);color:#fff;
-          padding:40px 0 60px}
-    .hero-inner{display:grid;grid-template-columns:minmax(0,1.1fr)minmax(0,1fr);gap:32px;
-                align-items:center}
-    .hero h1{font-size:32px;margin-bottom:12px}
-    .hero p{font-size:15px;color:#e0e5ff;margin-bottom:18px}
-    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;font-size:12px}
-    .tag{padding:6px 10px;border-radius:999px;background:rgba(3,16,60,.8);
-         border:1px solid rgba(159,187,255,.5)}
-    .hero-packshot{border-radius:18px;background:#061337;
-                   padding:18px;box-shadow:0 16px 32px rgba(0,0,0,.45)}
-    .hero-pack{height:52px;border-radius:12px;margin-bottom:10px;padding:8px 12px;
-               display:flex;align-items:center;justify-content:space-between;font-size:13px;
-               color:#fff}
-    .hero-pack:nth-child(1){background:linear-gradient(90deg,#0a3bff,#3ac4ff)}
-    .hero-pack:nth-child(2){background:linear-gradient(90deg,#0a9b5b,#7de2b0)}
-    .hero-pack:nth-child(3){background:linear-gradient(90deg,#f44336,#ff8a65)}
-    section{padding:40px 0}
-    h2{font-size:24px;margin-bottom:16px}
-    .grid{display:grid;gap:18px}
-    .cards-3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-    .card{background:#fff;border-radius:14px;padding:16px;
-          box-shadow:0 10px 22px rgba(0,0,0,.08)}
-    .pill{display:inline-block;font-size:11px;padding:4px 10px;border-radius:999px;
-          background:#eef2ff;margin-bottom:6px}
-    .card h3{font-size:16px;margin-bottom:6px}
-    .card p{font-size:13px;color:#5a627d}
-    footer{background:#020316;color:#9ba3ce;padding:24px 0;font-size:13px}
-    @media(max-width:800px){
-      .hero-inner{grid-template-columns:1fr}
-      nav{display:none}
+    .btn{
+      border-radius:999px;padding:9px 18px;border:1px solid transparent;
+      font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;
+    }
+    .btn-primary{
+      background:linear-gradient(115deg,var(--sky),var(--mint));
+      color:var(--navy);box-shadow:0 10px 24px rgba(0,0,0,.35);
+    }
+    .btn-outline{border-color:rgba(255,255,255,.6);background:transparent;color:#fff}
+    /* hero */
+    .hero{
+      background:radial-gradient(circle at top left,#1c46b3 0,var(--navy-dark) 60%,#000 100%);
+      color:#fff;padding:40px 0 70px;
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:minmax(0,1.2fr)minmax(0,1fr);
+      gap:40px;align-items:center;
+    }
+    .hero-eyebrow{
+      font-size:12px;letter-spacing:.24em;text-transform:uppercase;
+      color:var(--sky);margin-bottom:10px;
+    }
+    h1{font-size:clamp(30px,4vw,40px);margin-bottom:12px;}
+    .hero p{font-size:15px;color:#dde3ff;max-width:460px;margin-bottom:22px;}
+    .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;font-size:12px;}
+    .tag{
+      padding:6px 10px;border-radius:999px;
+      background:rgba(5,18,72,.9);border:1px solid rgba(144,184,255,.7);
+    }
+    .hero-ctas{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;}
+    .hero-note{font-size:12px;color:#c7d2ff;}
+    .hero-visual{
+      border-radius:24px;padding:18px;
+      background:radial-gradient(circle at 0 0,#2f65ff 0,#020316 60%,#000 100%);
+      box-shadow:0 22px 46px rgba(0,0,0,.7);
+    }
+    .hero-box{
+      border-radius:18px;border:1px solid rgba(164,194,255,.6);
+      padding:18px;background:linear-gradient(150deg,#14276a,#050c29);
+    }
+    .stack{
+      display:flex;flex-direction:column;gap:10px;margin-top:6px;
+    }
+    .stack-item{
+      border-radius:12px;padding:9px 14px;
+      display:flex;align-items:center;justify-content:space-between;
+      font-size:13px;color:#fff;box-shadow:0 12px 26px rgba(0,0,0,.7);
+    }
+    .stack-item span:first-child{font-weight:600;}
+    .stack-basic{background:linear-gradient(90deg,#1236b8,#3ec3ff);}
+    .stack-whitening{background:linear-gradient(90deg,#fefefe,#d2d8ff);color:#05143a;}
+    .stack-bio{background:linear-gradient(90deg,#1ea45c,#8de2b4);}
+    .stack-phytodent{background:linear-gradient(90deg,#0a498f,#3aa4ff);}
+    section{padding:52px 0;}
+    h2{font-size:24px;margin-bottom:18px;}
+    .section-intro{font-size:14px;color:var(--muted);max-width:540px;margin-bottom:22px;}
+    .grid{display:grid;gap:20px;}
+    .grid-2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+    .grid-4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+    .card{
+      background:var(--card);border-radius:var(--radius);padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .line-label{
+      font-size:11px;text-transform:uppercase;letter-spacing:.16em;
+      margin-bottom:6px;font-weight:700;
+    }
+    .pill{
+      display:inline-block;font-size:11px;border-radius:999px;
+      padding:4px 9px;margin-bottom:6px;background:#eef2ff;
+    }
+    .card h3{font-size:17px;margin-bottom:6px;}
+    .card p{font-size:13px;color:var(--muted);}
+    .line-basic{border-top:4px solid #2f5dff;}
+    .line-whitening{border-top:4px solid var(--gold);}
+    .line-bio{border-top:4px solid var(--green);}
+    .line-phytodent{border-top:4px solid var(--coral);}
+    /* featured + tips */
+    .subgrid{display:grid;gap:18px;grid-template-columns:2.1fr 1.3fr;}
+    .feat-item{display:flex;flex-direction:column;gap:6px;margin-bottom:10px;}
+    .feat-name{font-weight:600;font-size:14px;}
+    .badge{display:inline-block;font-size:11px;border-radius:999px;padding:3px 8px;}
+    .badge-blue{background:#e2ebff;color:#102666;}
+    .badge-gold{background:#fff5dc;color:#7c5a0e;}
+    .badge-green{background:#e3f7ea;color:#205b35;}
+    .tips-list{display:flex;flex-direction:column;gap:10px;font-size:13px;}
+    .tip-item{padding:10px 0;border-bottom:1px solid #e0e5f4;}
+    .tip-item:last-child{border-bottom:none;}
+    .tip-label{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);}
+    footer{
+      background:var(--navy-dark);color:#9aa2c8;font-size:13px;
+      padding:22px 0;margin-top:20px;
+    }
+    .foot-flex{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;}
+    @media(max-width:880px){
+      .hero-grid{grid-template-columns:1fr;}
+      nav{display:none;}
+    }
+    @media(max-width:720px){
+      .subgrid{grid-template-columns:1fr;}
     }
   </style>
 </head>
 <body>
 <header>
-  <div class="container header-inner">
-    <div style="font-weight:700;font-size:18px;">plidenta</div>
+  <div class="container hdr-inner">
+    <div class="logo">plidenta</div>
     <nav>
+      <a href="#basic">Basic</a>
       <a href="#whitening">Whitening</a>
-      <a href="#protective">Zaštita</a>
-      <a href="#science">Znanost</a>
+      <a href="#bio">Bio</a>
+      <a href="#phytodent">Phytodent</a>
+      <a href="#tips">Savjeti</a>
       <a href="#about">O Plidenti</a>
     </nav>
     <button class="btn btn-primary" onclick="location.href='#whitening'">Istraži paste</button>
@@ -74,119 +157,161 @@
 </header>
 
 <main>
+  <!-- HERO -->
   <section class="hero">
-    <div class="container hero-inner">
+    <div class="container hero-grid">
       <div>
-        <h1>Nova Plidenta za 100% osmijeh.</h1>
-        <p>Redizajnirana linija pasta i vodica za usta, inspirirana novim tamnoplavim
-           pakiranjem i više od 100 godina hrvatske tradicije.</p>
-        <div class="tags">
-          <span class="tag">Napredni whitening</span>
-          <span class="tag">Zaštita desni</span>
-          <span class="tag">Prirodni ekstrakti</span>
+        <div class="hero-eyebrow">Nova generacija linija</div>
+        <h1>Nova Plidenta Basic i Whitening, uz Bio i Phytodent.</h1>
+        <p>Četiri glavne linije za različite potrebe – od svakodnevne njege do naprednog izbjeljivanja i biljne zaštite desni.</p>
+        <div class="hero-tags">
+          <div class="tag">Basic – svakodnevna njega</div>
+          <div class="tag">Whitening – uklanjanje mrlja</div>
+          <div class="tag">Bio – biljni kompleksi</div>
+          <div class="tag">Phytodent – posebna njega desni</div>
         </div>
-        <button class="btn btn-primary" onclick="location.href='#whitening'">
-          Pogledaj sve paste
-        </button>
+        <div class="hero-ctas">
+          <button class="btn btn-primary" onclick="location.href='#whitening'">Whitening linija</button>
+          <button class="btn btn-outline" onclick="location.href='#basic'">Basic linija</button>
+        </div>
+        <div class="hero-note">Informacije o linijama ostaju iste kao na postojećoj web stranici, predstavljene u novom, osvježenom izgledu.</div>
       </div>
-      <div class="hero-packshot">
-        <div class="hero-pack">
-          <span>Extra White</span><span>Brzo uklanjanje mrlja</span>
-        </div>
-        <div class="hero-pack">
-          <span>Herbal</span><span>Nježna zaštita desni</span>
-        </div>
-        <div class="hero-pack">
-          <span>Parodont +</span><span>Medicinska njega</span>
+      <div class="hero-visual">
+        <div class="hero-box">
+          <strong style="font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.86;">Glavne linije</strong>
+          <div class="stack">
+            <div class="stack-item stack-basic">
+              <span>Basic</span><span>Svakodnevna zaštita</span>
+            </div>
+            <div class="stack-item stack-whitening">
+              <span>Whitening</span><span>Učinkovito izbjeljivanje</span>
+            </div>
+            <div class="stack-item stack-bio">
+              <span>Bio</span><span>Prirodni biljni ekstrakti</span>
+            </div>
+            <div class="stack-item stack-phytodent">
+              <span>Phytodent</span><span>Njega desni i parodonta</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="whitening">
+  <!-- LINE TILES -->
+  <section id="lines">
     <div class="container">
-      <h2>Whitening linija</h2>
-      <div class="grid cards-3">
-        <article class="card">
-          <span class="pill">Extra White</span>
-          <h3>Svjetliji zubi</h3>
-          <p>Formula za svakodnevnu upotrebu koja pomaže ukloniti površinske mrlje
-             i istovremeno štiti caklinu.</p>
+      <h2>Plidenta linije proizvoda</h2>
+      <p class="section-intro">Basic, Whitening, Bio i Phytodent predstavljaju četiri jasne cjeline – struktura ostaje poznata, a izgled je usklađen s novim plavim i bijelim pakiranjima.</p>
+      <div class="grid grid-4">
+        <article class="card line-basic" id="basic">
+          <div class="line-label">Basic</div>
+          <h3>Svaki dan, za cijelu obitelj</h3>
+          <p>Klasične Plidenta paste za cjelodnevnu svježinu i zaštitu od karijesa, sada u novom modernom pakiranju.</p>
         </article>
-        <article class="card">
-          <span class="pill">Instant White</span>
-          <h3>Brzi efekt</h3>
-          <p>Optički efekti za brže vizualno izbjeljivanje i svjež dah kad je
-             svaki detalj važan.</p>
+        <article class="card line-whitening" id="whitening">
+          <div class="line-label">Whitening</div>
+          <h3>Napredno izbjeljivanje</h3>
+          <p>Paste namijenjene uklanjanju površinskih mrlja i vraćanju prirodne bjeline zubi, uz zaštitu cakline.</p>
         </article>
-        <article class="card">
-          <span class="pill">Black &amp; Gold</span>
-          <h3>Aktivni ugljen</h3>
-          <p>Kombinacija aktivnog ugljena i nježnih abraziva za dubinsko čišćenje
-             i sjajni osmijeh.</p>
+        <article class="card line-bio" id="bio">
+          <div class="line-label">Bio</div>
+          <h3>Bio Phytodent biljna linija</h3>
+          <p>Paste s biljnim ekstraktima i pažljivo odabranim sastojcima za dodatnu zaštitu desni i smanjenje plaka.</p>
         </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="protective">
-    <div class="container">
-      <h2>Zaštita i priroda</h2>
-      <div class="grid cards-3">
-        <article class="card">
-          <span class="pill">Herbal</span>
-          <h3>Biljni ekstrakti</h3>
-          <p>Odabrani biljni sastojci koji pomažu smiriti desni i održati osjećaj
-             čistoće tijekom dana.</p>
-        </article>
-        <article class="card">
-          <span class="pill">Propolis</span>
-          <h3>Prirodna barijera</h3>
-          <p>Propolis i dodatni aktivni sastojci za dodatnu zaštitu desni.</p>
-        </article>
-        <article class="card">
-          <span class="pill">Kids</span>
-          <h3>Za male osmijehe</h3>
-          <p>Nježna formula prilagođena djeci, s okusima koje djeca vole.</p>
+        <article class="card line-phytodent" id="phytodent">
+          <div class="line-label">Phytodent</div>
+          <h3>Posebna njega desni</h3>
+          <p>Linija proizvoda za pojačanu njegu desni i parodonta, utemeljena na fitokompleksima.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="science">
-    <div class="container">
-      <h2>Znanost iza osmijeha</h2>
-      <div class="grid cards-3">
-        <article class="card">
-          <h3>Fluoridna zaštita</h3>
-          <p>Pomaže ojačati caklinu i smanjiti rizik od nastanka karijesa.</p>
-        </article>
-        <article class="card">
-          <h3>Sastojci nove generacije</h3>
-          <p>Aktivni kompleksi za izbjeljivanje, zaštitu desni i osjetljive zube.</p>
-        </article>
-        <article class="card">
-          <h3>100% hrvatski brend</h3>
-          <p>Dizajnirano i proizvedeno u Hrvatskoj, uz poštivanje visokih
-             kvalitativnih standarda.</p>
-        </article>
+  <!-- BASIC & WHITENING DETAIL -->
+  <section>
+    <div class="container subgrid">
+      <div>
+        <h2>Basic linija – nova ambalaža, poznata kvaliteta</h2>
+        <p class="section-intro">Zadržava informacije i namjenu postojeće “Basic” ponude, ali prikazuje ih u novim bijelim i plavim pakiranjima.</p>
+        <div class="card line-basic">
+          <div class="feat-item">
+            <span class="feat-name">Basic svakodnevne paste</span>
+            <span class="badge badge-blue">Zaštita od karijesa</span>
+          </div>
+          <p>Pogodne za cijelu obitelj, s ugodnim okusima i fluoridom za jačanje cakline. Namjena i prednosti ostaju kao na postojećim stranicama – mijenja se samo vizualna prezentacija.</p>
+        </div>
+      </div>
+      <div>
+        <h2>Whitening linija – Extra, Total, Instant, Black &amp; Gold</h2>
+        <p class="section-intro">Struktura izbjeljujuće ponude s Plidenta weba ostaje ista, uz novi, naglašen tamni vizual s bijelim pakiranjima.</p>
+        <div class="card line-whitening">
+          <div class="feat-item">
+            <span class="feat-name">Extra / Total / Instant White</span>
+            <span class="badge badge-gold">Uklanjanje mrlja</span>
+          </div>
+          <p>Paste usmjerene na svakodnevno i pojačano izbjeljivanje, uz zaštitu cakline i svjež dah. Black &amp; Gold kombinira aktivni ugljen i nježne abrazive za dodatni sjaj.</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- BIO & PHYTODENT DETAIL + TIPS -->
+  <section>
+    <div class="container subgrid" id="tips">
+      <div>
+        <h2>Bio Phytodent i Phytodent – biljna i ciljano usmjerena njega</h2>
+        <p class="section-intro">Sadržajno odgovara postojećim Bio i Phytodent stranicama – informacije o biljnim ekstraktima, zaštiti desni i smanjenju plaka prenesene su u novu kartičnu prezentaciju.</p>
+        <div class="card line-bio">
+          <div class="feat-item">
+            <span class="feat-name">Bio Phytodent</span>
+            <span class="badge badge-green">Biljni ekstrakti</span>
+          </div>
+          <p>Paste s kombinacijom biljnih sastojaka koje pomažu u održavanju desni i smanjenju nakupljanja plaka, za korisnike koji traže prirodniji pristup.</p>
+        </div>
+        <div class="card line-phytodent" style="margin-top:14px;">
+          <div class="feat-item">
+            <span class="feat-name">Phytodent specijalna njega</span>
+            <span class="badge badge-blue">Podrška desnima</span>
+          </div>
+          <p>Posebno razvijena formula za osjetljive desni i korisnike sklone parodontnim tegobama, u skladu s postojećim opisima proizvoda.</p>
+        </div>
+      </div>
+      <div>
+        <h2>Savjeti za zdrav osmijeh</h2>
+        <div class="card">
+          <div class="tips-list">
+            <div class="tip-item">
+              <div class="tip-label">Whitening</div>
+              <div>Kako pravilno koristiti izbjeljujuće paste bez oštećenja cakline.</div>
+            </div>
+            <div class="tip-item">
+              <div class="tip-label">Bio njega</div>
+              <div>Prednosti biljnih ekstrakata za desni i svjež dah.</div>
+            </div>
+            <div class="tip-item">
+              <div class="tip-label">Phytodent</div>
+              <div>Kada posegnuti za specijaliziranom njegom desni i kako je kombinirati s ostalim linijama.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <h2>O Plidenti</h2>
-      <p>Plidenta je domaći brend zubnih pasta s dugom tradicijom. Nova
-         ambalaža i recepture spajaju prepoznatljiv izgled i suvremenu
-         stomatološku znanost.</p>
+      <p class="section-intro">Plidenta zadržava istu stručnost, tradiciju i linije proizvoda kao na trenutnoj web stranici – ovaj dizajn mijenja samo način na koji su informacije predstavljene, uz naglasak na nova pakiranja Basic i Whitening linije.</p>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="container">
-    © 2025 Plidenta. Sva prava pridržana.
+  <div class="container foot-flex">
+    <span>© 2025 Plidenta. Sva prava pridržana.</span>
+    <span>Basic · Whitening · Bio · Phytodent</span>
   </div>
 </footer>
 </body>
