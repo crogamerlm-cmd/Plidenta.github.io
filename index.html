@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plidenta – 100% osmijeh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --navy: #051a4a;
+      --navy-light: #0b2a70;
+      --aqua: #1fd3ff;
+      --mint: #68d7a3;
+      --coral: #ff4a5e;
+      --gold: #d4aa3a;
+      --lavender: #b5a4ff;
+      --red-med: #f44336;
+      --bg: #f3f6fb;
+      --text: #1c2440;
+      --muted: #6f7a97;
+      --radius: 10px;
+      --shadow: 0 18px 40px rgba(0,0,0,0.16);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* Layout helpers */
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    section { padding: 64px 0; }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: linear-gradient(90deg, var(--navy), var(--navy-light));
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 800;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+    }
+    nav a {
+      opacity: 0.88;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--aqua);
+      transition: width 0.2s ease;
+    }
+    nav a:hover::after { width: 100%; }
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(120deg, var(--aqua), var(--mint));
+      color: var(--navy);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(0,0,0,0.28); }
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.5);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+    .hamburger {
+      display: none;
+      width: 24px;
+      height: 24px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+    }
+    .hamburger span {
+      height: 2px;
+      background: #fff;
+      border-radius: 999px;
+    }
+
+    /* Hero */
+    .hero {
+      background: radial-gradient(circle at top left, #1c3aa3 0, #020316 55%, #000000 100%);
+      color: #fff;
+      padding-top: 48px;
+      padding-bottom: 72px;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+    .eyebrow {
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--aqua);
+      margin-bottom: 12px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+    .hero p {
+      font-size: 15px;
+      color: #e1e7ff;
+      max-width: 460px;
+      margin-bottom: 24px;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .pill {
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(8,30,80,0.85);
+      border: 1px solid rgba(116,156,255,0.6);
+    }
+    .pill-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+    }
+    .pill-icon.blue { background: linear-gradient(135deg, var(--aqua), #9df); }
+    .pill-icon.gold { background: linear-gradient(135deg, var(--gold), #ffe6a4); }
+    .pill-icon.green { background: linear-gradient(135deg, var(--mint), #e0ffe8); }
+
+    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+    .hero-note {
+      font-size: 12px;
+      color: #cfd6ff;
+    }
+
+    .hero-visual {
+      border-radius: 26px;
+      background: radial-gradient(circle at 10% 0, #3c6bff 0, #02051a 55%, #000000 100%);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-visual-inner {
+      border-radius: 20px;
+      border: 1px solid rgba(152,184,255,0.45);
+      padding: 18px 18px 4px;
+      background: linear-gradient(160deg, rgba(22,42,132,0.9), rgba(7,14,51,0.95));
+    }
+    .hero-stack {
+      position: relative;
+      margin-top: 6px;
+    }
+    .hero-pack {
+      border-radius: 12px;
+      height: 58px;
+      display: flex;
+      align-items: center;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.65);
+      border: 1px solid rgba(255,255,255,0.18);
+      margin-bottom: 10px;
+    }
+    .hero-pack-label {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .hero-pack-name { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.88; }
+    .hero-pack-line { font-size: 16px
